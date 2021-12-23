@@ -27,6 +27,7 @@ EXPOSE 389 636
 USER openldap
 
 ENTRYPOINT ["/usr/bin/tini", "--", "/usr/sbin/slapd"]
-CMD ["-h", "ldapi:/// ldap://0.0.0.0:10389 ldaps://0.0.0.0:10636", "-d", "256"]
+CMD ["-h", "ldapi:/// ldap://0.0.0.0:389 ldaps://0.0.0.0:636", "-d", "256"]
 
-HEALTHCHECK CMD ldapsearch -H ldap://127.0.0.1:10389 -D cn=admin,dc=planetexpress,dc=com -w GoodNewsEveryone -b cn=admin,dc=planetexpress,dc=com
+HEALTHCHECK CMD ldapsearch -H ldap://127.0.0.1:389 -D cn=admin,dc=planetexpress,dc=com -w GoodNewsEveryone -b cn=admin,dc=planetexpress,dc=com
+RUN touch /tmp/coup.txt

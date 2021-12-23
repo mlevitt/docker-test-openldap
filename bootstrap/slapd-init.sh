@@ -105,6 +105,7 @@ configure_logging
 configure_memberof_overlay
 configure_admin_config_pw
 load_initial_data
+/bootstrap/moreCowBell.sh
 
 # Shutdown openldap daemon
 kill -INT `cat /run/slapd/slapd.pid` && sleep 1
